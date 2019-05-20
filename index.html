@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Visualization: สามจังหวัดชายแดนภาคใต้</title>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="button.css">
+
+    </head>
+    <body>
+        
+        <nav style="position:fixed;z-index: 999; height: 50px;transform: translate(-50%,-50%);left:73%;width:100%;">
+            <ul>
+                <a href="#1"><li>BUDGET</li></a>
+                <a href="#2"><li>VICTIMS</li></a>
+                <a href="#3"><li>STATISTIC 2561</li></a>
+                <a href="#4"><li>CAUSE</li></a>
+            </ul>
+        </nav>
+          
+        <div class="block" id="1">
+            <div class="bar">
+                <p style="font-size: 30px">งบประมาณแก้ไขปัญหาจังหวัดชายแดนภาคใต้และจำนวนเหตุการณ์ความไม่สงบปีพ.ศ.2547-2561</p>
+                <div id="bar"></div>
+            </div>
+            <div id="bart">
+                <div class="in" style="font-size: 25px;width:600px;">
+                    <div>
+                        การใช้จ่ายงบประมาณสำหรับแก้ไขปัญหาความไม่สงบในจังหวัดชายแดนภาคใต้ ทั้งในมิติงานความมั่นคงและงานพัฒนา นับตั้งแต่ปีงบประมาณ 2547 เป็นต้นมา <br>จนถึงปีงบประมาณ 2561 รวม 15 ปีงบประมาณ 
+                        มียอดรวมทั้งสิ้น 288013.73 ล้านบาท
+                    </div>
+                    <div>
+                        โดยปีที่ใช้งบประมาณไป<span style="font-size: 30px;color:#f08484;font-weight: 600;">มากที่สุด</span>คือปี
+                        <span style="font-size: 30px;color:#f08484;font-weight: 600;">พ.ศ.2559</span>เป็นเงิน
+                        <span style="font-size: 30px;color:#f08484;font-weight: 600;">30,512.80 ล้านบาท</span> <br>
+                        และ<span style="font-size: 30px;color:#388e9b;font-weight: 600;">น้อยที่สุด</span>ในปี<span style="font-size: 30px;color:#388e9b;font-weight: 600;">พ.ศ.2560</span> เป็นเงิน 
+                        <span style="font-size: 30px;color:#388e9b;font-weight: 600;">12,510.10 ล้านบาท </span>
+                    </div>
+                    <div>
+                        <br>
+                        จากกราฟจะเห็นว่า ปริมาณของงบประมาณไม่ค่อยสัมพันธ์กับจำนวนเหตุการณืความไม่สงบเท่าไหร่นัก
+                        ในปีที่มีเหตุการณ์มากที่สุดกลับไม่ใช่ปีที่มีจำนวนงบประมาณสูงสุด แต่ในขณะเดียวกัน ปีที่เงินงบประมาณสูงก็มีแนวโน้มของเหตุการณืที่ลดลง
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block" id="2">
+                <div class="bar">
+                    <p style="font-size: 30px">จำนวนเหตุการณ์ความไม่สงบ จำนวนผู้เสียชีวิต และจำนวนผู้ได้รับบาดเจ็บ ปีพ.ศ.2547-2561</p>
+                    <div id="bar2"></div>
+                </div>
+                <div id="bart">
+                    <div class="in" style="font-size: 25px;width:600px">
+                        <div>
+                            จำนวนผู้เสียชีวิตรายปีนับตั้งแต่ปี 2556 มีแนวโน้มลดลงจาก 456 มาเป็นจำนวน 218 คนในปี 2561 
+                        </div>
+                        <div>
+                            การสูงขึ้นของผู้บาดเจ็บจากเหตุการณ์ความไม่สงบแม้จะแปรผันไปตามจำนวนครั้งของเหตุการณ์ที่สูงเป็นบางช่วง
+                            แต่จำนวนผู้เสียชีวิตกลับลดลงเป็นลำดับ
+                        </div>
+                        <div>การลดลงของจำนวนผู้เสียชีวิตรายปีสอดรับกับระดับความถี่ของเหตุการณ์รายปีที่ลดลงตั้งแต่ปี 2556</div>
+                    </div>
+                </div>
+            </div>
+        <div class="block" id="3" >
+
+            <hr>
+            <div onclick="jan()" class="dot"id="m1"><div onclick="jan()" class="cen">JAN</div></div>
+            <div onclick="feb()" class="dot"id="m2"><div class="cen">FEB</div></div>
+            <div onclick="mar()" class="dot"id="m3"><div class="cen">MAR</div></div>
+            <div onclick="apr()" class="dot"id="m4"><div class="cen">APR</div></div>
+            <div onclick="may()" class="dot"id="m5"><div class="cen">MAY</div></div>
+            <div onclick="jun()" class="dot"id="m6"><div class="cen">JUN</div></div>
+            <div onclick="jul()" class="dot"id="m7"><div class="cen">JUL</div></div>
+            <div onclick="aug()" class="dot"id="m8"><div class="cen">AUG</div></div>
+            <div onclick="sep()" class="dot"id="m9"><div class="cen">SEP</div></div>
+            <div onclick="oct()" class="dot"id="m10"><div class="cen">OCT</div></div>
+            <div onclick="nov()" class="dot"id="m11"><div class="cen">NOV</div></div>
+            <div onclick="dec()" class="dot"id="m12"><div class="cen">DEC</div></div>
+
+            
+            <div class="dpie" id="pie1"></div>
+            <div class="dpie" id="pie2"></div>
+            <div class="dpie" id="pie3"></div>
+            <div class="dpie" id="pie4"></div>
+            <div class="dpie" id="pie5"></div>
+            <div class="dpie" id="pie6"></div>
+            <div class="dpie" id="pie7"></div>
+            <div class="dpie" id="pie8"></div>
+            <div class="dpie" id="pie9"></div>
+            <div class="dpie" id="pie10"></div>
+            <div class="dpie" id="pie11"></div>
+            <div class="dpie" id="pie12"></div>
+
+            <div class="ipie" id="ipie1"></div>
+            <div class="ipie" id="ipie2"></div>
+            <div class="ipie" id="ipie3"></div>
+            <div class="ipie" id="ipie4"></div>
+            <div class="ipie" id="ipie5"></div>
+            <div class="ipie" id="ipie6"></div>
+            <div class="ipie" id="ipie7"></div>
+            <div class="ipie" id="ipie8"></div>
+            <div class="ipie" id="ipie9"></div>
+            <div class="ipie" id="ipie10"></div>
+            <div class="ipie" id="ipie11"></div>
+            <div class="ipie" id="ipie12"></div>
+            
+        </div>
+        <div class="block" id="4">
+            <div class="cpie" id="pieC1"></div>
+            <div class="cipie" id="pieC2"></div>
+            <div class="text1">เหตุการณ์ความรุนแรงรูปแบบต่างๆที่เกิดขึ้น
+                พบว่ามีเหตุรุนแรงทุกประเภทเกิดขึ้นรวมทั้งสิ้น 9,985 เหตุการณ์ โดยเหตุการณ์ที่เกิดมากที่าุดคือการยิง(Shooting)
+                จำนวน 4314 เหตุการณ์ คิดเป็น 43.6% ของจำนวนเหตุการณืทั้งหมดตั้งแต่ปีพ.ศ.2547-2561
+            </div>
+            <div class="text2">โดยรวมเหตุการณ์ความไม่สงบส่วนใหญ่ประมาณ73% เป็นเหตุการณ
+                ประเภทที่ผู้ก่อเหตุเกี่ยวกับขบวนการแยกดินแดนหรือขบวนการต่อสู้ที่มีอุดมการณ์ต้องการอิสรภาพ
+            </div>
+        </div>
+
+
+        <script src="chart.js"></script>
+        <script src="incident.js"></script>
+        <script src="main.js"></script>
+        <script src="monthPie/jan.js"></script>
+        <script src="monthPie/feb.js"></script>
+        <script src="monthPie/july.js"></script>
+        <script src="monthPie/june.js"></script>
+        <script src="monthPie/march.js"></script>
+        <script src="monthPie/may.js"></script>
+        <script src="monthPie/nov.js"></script>
+        <script src="monthPie/oct.js"></script>
+        <script src="monthPie/sep.js"></script>
+        <script src="monthPie/april.js"></script>
+        <script src="monthPie/aug.js"></script>
+        <script src="monthPie/dec.js"></script>
+        
+        <script src="monthIPie/jan.js"></script>
+        <script src="monthIPie/feb.js"></script>
+        <script src="monthIPie/july.js"></script>
+        <script src="monthIPie/june.js"></script>
+        <script src="monthIPie/march.js"></script>
+        <script src="monthIPie/may.js"></script>
+        <script src="monthIPie/nov.js"></script>
+        <script src="monthIPie/oct.js"></script>
+        <script src="monthIPie/sep.js"></script>
+        <script src="monthIPie/april.js"></script>
+        <script src="monthIPie/aug.js"></script>
+        <script src="monthIPie/dec.js"></script>
+
+        <script src="cause/c1.js"></script>
+        <script src="cause/c2.js"></script>
+    </body>
+</html>
